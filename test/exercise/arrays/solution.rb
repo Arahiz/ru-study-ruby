@@ -21,10 +21,14 @@ module Exercise
         end
         mid_position = (left + right) / 2
         return mid_position if array[mid_position] == query
-        return -1 if left == right
-        return search(array, query, left, mid_position - 1) if array[mid_position] > query
 
-        search(array, query, mid_position + 1, right)
+        return -1 if left == right
+
+        if array[mid_position] > query
+          search(array, query, left, mid_position - 1)
+        else
+          search(array, query, mid_position + 1, right)
+        end
       end
     end
   end
