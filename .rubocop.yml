@@ -50,3 +50,7 @@ Style/AsciiComments:
 
 Style/For:
   Enabled: false
+
+Layout/EndOfLine:
+  Enabled: false
+
