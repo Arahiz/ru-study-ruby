@@ -6,7 +6,9 @@ module Exercise
       # film["genres"], film["year"], film["access_level"], film["country"]
       def rating(array)
         rating_array = array.map { |film| film['country'].to_s.split(',').length > 1 ? film['rating_kinopoisk'].to_f : 0 }
-        rating_array.reduce(0, :+) / rating_array.map { |rate| rate.positive? ? 1 : 0 }.reduce(0, :+)
+        sum_rates = rating_array.reduce(0, :+)
+        quantity_films = rating_array.map { |rate| rate.positive? ? 1 : 0 }.reduce(0, :+)
+        sum_rates / quantity_films
       end
 
       def chars_count(films, threshold)
