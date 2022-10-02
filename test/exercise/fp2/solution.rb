@@ -16,14 +16,14 @@ module Exercise
 
       # Написать свою функцию my_map
       def my_map
-        result_array = []
+        result_array = MyArray.new
         my_reduce(result_array, &->(handled_array, current_elem) { handled_array << yield(current_elem) })
       end
 
       # Написать свою функцию my_compact
       def my_compact
-        result_array = []
-        my_reduce(result_array, &->(handled_array, current_elem) { current_elem ? handled_array << current_elem : handled_array })
+        result_array = MyArray.new
+        my_reduce(result_array, &->(handled_array, current_elem) { current_elem.nil? ? handled_array : handled_array << current_elem })
       end
 
       # Написать свою функцию my_reduce
